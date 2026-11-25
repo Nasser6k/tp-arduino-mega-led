@@ -49,3 +49,34 @@ void setup() {
 
 void loop() {
 }
+const int LED_PIN = 13;
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH); // Allume
+  delay(1000);                 // Attend 1 seconde
+  digitalWrite(LED_PIN, LOW);  // Éteint
+  delay(1000);                 // Attend 1 seconde
+}
+const int LED_PIN = 13;
+const int BOUTON_PIN = 2;
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BOUTON_PIN, INPUT_PULLUP);
+  digitalWrite(LED_PIN, LOW);
+}
+
+void loop() {
+  if (digitalRead(BOUTON_PIN) == LOW) {
+    for (int i = 0; i < 5; i++) {
+      digitalWrite(LED_PIN, HIGH);
+      delay(500);
+      digitalWrite(LED_PIN, LOW);
+      delay(500);
+    }
+  }
+}
